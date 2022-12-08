@@ -1,0 +1,5 @@
+08/12/2022 08:07:05 testando
+08/12/2022 08:07:11 outra linha
+08/12/2022 08:07:18 mais uma linha
+08/12/2022 08:07:25 estamos registrando tudo!
+08/12/2022 08:07:30 cansei!

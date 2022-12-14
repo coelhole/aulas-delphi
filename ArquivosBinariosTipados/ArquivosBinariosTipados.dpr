@@ -11,8 +11,9 @@ const
 var
   meuArquivoDeInteiros:file of integer;
   i,meuint:integer;
-
 begin
+  randomize;
+
   assignFile(meuArquivoDeInteiros,MEU_ARQUIVO_DE_INTEIROS);
 
   //escrita

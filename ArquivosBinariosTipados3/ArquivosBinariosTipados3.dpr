@@ -24,6 +24,9 @@ var
   cid:cidade;
   i:integer;
 begin
+  if not fileExists(ARQUIVO_CIDADES) then
+    exit;
+
   assignFile(cidadesdb,ARQUIVO_CIDADES);
   reset(cidadesdb);
   while not eof(cidadesdb) do begin

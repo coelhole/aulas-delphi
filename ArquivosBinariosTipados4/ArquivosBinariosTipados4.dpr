@@ -6,7 +6,7 @@ uses
   SysUtils;
 
 const
-  ARQUIVO_CIDADES='C:\Users\leonardo\Desktop\aulas-delphi\aulas-de-programacao-delphi\ArquivosBinariosTipados4\cidades';
+  ARQUIVO_CIDADES='C:\Users\Administrador\Desktop\aulas-delphi\aulas-de-programacao-delphi\ArquivosBinariosTipados4\cidades';
 
 type
   cidade=record
@@ -56,7 +56,6 @@ begin
     write(#9,'Digite o nome da cidade (3 ou mais caracteres): ');
     readln(result);
   until length(trim(result))>2;
-  result:=uppercase(result);
 end;
 
 procedure cadastrarCidade;
@@ -115,12 +114,12 @@ procedure navegarPelosRegistros;
     op:string;//opção
   procedure imprimirOpcoesDeNavegacao;
   begin
-    writeln(#9#9,'a/A: IR PARA O PRIMEIRO REGISTRO');
-    writeln(#9#9,'b/B: IR PARA O REGISTRO ANTERIOR');
-    writeln(#9#9,'c/C: IR PARA O PROXIMO REGISTRO');
-    writeln(#9#9,'d/D: IR PARA O ULTIMO REGISTRO');
-    writeln(#9#9,'e/E: ESPECIFICAR O ID DO REGISTRO');
-    writeln(#9#9,'z/Z: VOLTAR PARA O MENU PRINCIPAL');
+    writeln(#9#9,'1: IR PARA O PRIMEIRO REGISTRO');
+    writeln(#9#9,'2: IR PARA O REGISTRO ANTERIOR');
+    writeln(#9#9,'3: IR PARA O PROXIMO REGISTRO');
+    writeln(#9#9,'4: IR PARA O ULTIMO REGISTRO');
+    writeln(#9#9,'5: ESPECIFICAR O ID DO REGISTRO');
+    writeln(#9#9,'9: VOLTAR PARA O MENU PRINCIPAL');
     write(#9,'OP: ');
   end;
   procedure primeiroRegistro;
@@ -147,28 +146,27 @@ begin
   op:='0';
 
   repeat
-    if op[1]='A' then
+    if op[1]='1' then
       primeiroRegistro
     else
-    if op[1]='B' then
+    if op[1]='2' then
       registroAnterior
     else
-    if op[1]='C' then
+    if op[1]='3' then
       proximoRegistro
     else
-    if op[1]='D' then
+    if op[1]='4' then
       ultimoRegistro
     else
-    if op[1]='E' then
+    if op[1]='5' then
       especificarID
     else
       imprimirOpcoesDeNavegacao;
 
     readln(op);
-    op:=uppercase(op);
 
     if length(op)<>1 then op:='0';
-  until op[1]='Z';
+  until op[1]='9';
 end;
 
 procedure menu;

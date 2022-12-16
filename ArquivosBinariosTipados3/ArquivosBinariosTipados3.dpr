@@ -38,7 +38,7 @@ begin
   closeFile(cidadesdb);
 end;
 
-procedure imprimeMenu;
+procedure imprimirMenu;
 begin
   writeln('1: CADASTRAR CIDADE');
   writeln('2: LISTAR CIDADES');
@@ -55,9 +55,10 @@ begin
     write('Digite a UF: ');
     readln(uf);
   until length(trim(uf))=2;
+  uf:=uppercase(uf);
 
   repeat
-    write('Digite o nome da cidade (>= 3 caracteres): ');
+    write('Digite o nome da cidade (3 ou mais caracteres): ');
     readln(cidade);
   until length(trim(cidade))>2;
 
@@ -66,7 +67,7 @@ begin
   cidades[i-1].nome:=cidade;
   cidades[i-1].uf:=uf;
 
-  imprimeMenu;
+  imprimirMenu;
 end;
 
 procedure salvarCidades;
@@ -91,12 +92,12 @@ begin
     writeln;
   end;
 
-  imprimeMenu;
+  imprimirMenu;
 end;
 
 procedure menu;
 begin
-  imprimeMenu;
+  imprimirMenu;
 
   repeat
     readln(op);

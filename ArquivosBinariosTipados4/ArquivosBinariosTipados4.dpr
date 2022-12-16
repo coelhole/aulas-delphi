@@ -31,11 +31,11 @@ begin
   else
     rewrite(cidadesdb);
   numreg:=filesize(cidadesdb);
+  closeFile(cidadesdb);
   if numreg>0 then
     id:=1
   else
     id:=0;
-  closeFile(cidadesdb);
 end;
 
 procedure imprimirMenu;

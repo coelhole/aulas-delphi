@@ -15,7 +15,9 @@ type
   end;
 
 var
-  numreg:integer;//número de registros
+  numreg,//número de registros
+  id//id do registro atual
+    :integer;
 
 procedure checkfile;
 var
@@ -27,6 +29,10 @@ begin
   else
     rewrite(cidadesdb);
   numreg:=filesize(cidadesdb);
+  if numreg>0 then
+    id:=1
+  else
+    id:=0;
   closeFile(cidadesdb);
 end;
 
@@ -74,8 +80,8 @@ begin
   write(cidadesdb,cid);
   closeFile(cidadesdb);
   inc(numreg);
+  writeln(#9,'CIDADE CADASTRADA COM SUCESSO!');
 
-  writeln;
   imprimirMenu;
 end;
 
@@ -83,16 +89,16 @@ procedure listarCidades;
 var
   cidadesdb:file of cidade;
   cid:cidade;
-  id:integer;
+  i:integer;
 begin
   writeln;
   assignFile(cidadesdb,ARQUIVO_CIDADES);
   reset(cidadesdb);
-  id:=0;
+  i:=0;
   while not eof(cidadesdb) do begin
     read(cidadesdb,cid);
-    inc(id);
-    writeln(#9,'ID: ',id);
+    inc(i);
+    writeln(#9,'ID: ',i);
     writeln(#9,'NOME: ',cid.nome);
     writeln(#9,'UF: ',cid.uf);
     writeln;
@@ -112,61 +118,129 @@ end;
 procedure navegarPelosRegistros;
   var
     op:string;//opção
+    cidadesdb:file of cidade;
+    cid:cidade;
   procedure imprimirOpcoesDeNavegacao;
   begin
-    writeln(#9#9,'1: IR PARA O PRIMEIRO REGISTRO');
-    writeln(#9#9,'2: IR PARA O REGISTRO ANTERIOR');
-    writeln(#9#9,'3: IR PARA O PROXIMO REGISTRO');
-    writeln(#9#9,'4: IR PARA O ULTIMO REGISTRO');
-    writeln(#9#9,'5: ESPECIFICAR O ID DO REGISTRO');
+    writeln(#9#9,'1: EXIBIR O REGISTRO ATUAL');
+    writeln(#9#9,'2: IR PARA O PRIMEIRO REGISTRO');
+    writeln(#9#9,'3: IR PARA O REGISTRO ANTERIOR');
+    writeln(#9#9,'4: IR PARA O PROXIMO REGISTRO');
+    writeln(#9#9,'5: IR PARA O ULTIMO REGISTRO');
+    writeln(#9#9,'6: ESPECIFICAR O ID DO REGISTRO');
     writeln(#9#9,'9: VOLTAR PARA O MENU PRINCIPAL');
     write(#9,'OP: ');
   end;
+  procedure imprimirRegistro;
+  begin
+    writeln(#9#9,'ID: ',id);
+    writeln(#9#9,'NOME: ',cid.nome);
+    writeln(#9#9,'UF: ',cid.uf);
+    writeln;
+    navegarPelosRegistros;
+  end;
+  procedure exibirRegistroAtual;
+  begin
+    assignFile(cidadesdb,ARQUIVO_CIDADES);
+    reset(cidadesdb);
+    seek(cidadesdb,id-1);
+    read(cidadesdb,cid);
+    closeFile(cidadesdb);
+    imprimirRegistro;
+  end;
   procedure primeiroRegistro;
   begin
-
-  end;
-  procedure registroAnterior;
-  begin
-
-  end;
-  procedure proximoRegistro;
-  begin
-
+    assignFile(cidadesdb,ARQUIVO_CIDADES);
+    reset(cidadesdb);
+    read(cidadesdb,cid);
+    closeFile(cidadesdb);
+    id:=1;
+    imprimirRegistro;
   end;
   procedure ultimoRegistro;
   begin
-
+    assignFile(cidadesdb,ARQUIVO_CIDADES);
+    reset(cidadesdb);
+    seek(cidadesdb,numreg-1);
+    read(cidadesdb,cid);
+    closeFile(cidadesdb);
+    id:=numreg;
+    imprimirRegistro;
+  end;
+  procedure registroAnterior;
+  begin
+    if id=1 then
+      primeiroRegistro
+    else begin
+      assignFile(cidadesdb,ARQUIVO_CIDADES);
+      reset(cidadesdb);
+      id:=id-1;
+      seek(cidadesdb,id-1);
+      read(cidadesdb,cid);
+      closeFile(cidadesdb);
+      imprimirRegistro;
+    end;
+  end;
+  procedure proximoRegistro;
+  begin
+    if id=numreg then
+      ultimoRegistro
+    else begin
+      assignFile(cidadesdb,ARQUIVO_CIDADES);
+      reset(cidadesdb);
+      seek(cidadesdb,id);
+      inc(id);
+      read(cidadesdb,cid);
+      closeFile(cidadesdb);
+      imprimirRegistro;
+    end;
   end;
   procedure especificarID;
   begin
-
+    //
+    //
+    //
+  end;
+  procedure opcaoInvalida;
+  begin
+    op:='0';
+    writeln(#9#9,'OPCAO INVALIDA!');
+    writeln;
   end;
 begin
-  op:='0';
-
-  repeat
-    if op[1]='1' then
-      primeiroRegistro
-    else
-    if op[1]='2' then
-      registroAnterior
-    else
-    if op[1]='3' then
-      proximoRegistro
-    else
-    if op[1]='4' then
-      ultimoRegistro
-    else
-    if op[1]='5' then
-      especificarID
-    else
-      imprimirOpcoesDeNavegacao;
-
+  while true do begin
+    imprimirOpcoesDeNavegacao;
     readln(op);
 
-    if length(op)<>1 then op:='0';
-  until op[1]='9';
+    if length(op)<>1 then
+      opcaoInvalida
+    else
+    if op[1]='1' then
+      exibirRegistroAtual
+    else
+    if op[1]='2' then
+      primeiroRegistro
+    else
+    if op[1]='3' then
+      registroAnterior
+    else
+    if op[1]='4' then
+      proximoRegistro
+    else
+    if op[1]='5' then
+      ultimoRegistro
+    else
+    if op[1]='6' then
+      especificarID
+    else
+    if op[1]='9' then
+    begin
+      imprimirMenu;
+      break;
+    end
+    else
+      opcaoInvalida;
+  end;
 end;
 
 procedure menu;

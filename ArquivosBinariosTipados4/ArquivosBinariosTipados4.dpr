@@ -245,7 +245,13 @@ begin
   repeat
     readln(op);
 
-    if length(op)<>1 then
+    if trim(op)='' then
+      op:='-';
+
+    if op='-' then
+      imprimirMenu
+    else
+    if length(op)>1 then
       opcaoInvalida
     else
     if op[1]='0' then

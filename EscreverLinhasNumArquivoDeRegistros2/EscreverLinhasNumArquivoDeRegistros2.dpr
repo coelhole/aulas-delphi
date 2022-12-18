@@ -26,7 +26,7 @@ begin
     readln(linha);
     linha:=formatdatetime('dd/mm/yyyy hh:nn:ss',now)+' '+linha;
     writeln(registros,linha);
-	flush(registros);//esvazia o buffer, forçando o envio imediato da nova linha para o arquivo (i.e., antes que closeFile seja chamada)
+    flush(registros);//esvazia o buffer, forçando o envio imediato da nova linha para o arquivo (i.e., antes que closeFile seja chamada)
     write('DESEJA ESCREVER MAIS UMA LINHA NO ARQUIVO DE REGISTROS (S\s para Sim)? ');
     readln(linha);
     escreverlinha:=(linha='S') or (linha='s');

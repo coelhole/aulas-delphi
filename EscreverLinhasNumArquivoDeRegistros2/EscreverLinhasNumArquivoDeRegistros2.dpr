@@ -6,7 +6,7 @@ uses
   SysUtils;
 
 const
-  ARQUIVO_DE_REGISTROS='C:\Users\Administrador\Desktop\aulas-delphi\aulas-de-programacao-delphi\EscreverLinhasNumArquivoDeRegistros\registros.txt';
+  ARQUIVO_DE_REGISTROS='C:\Users\Administrador\Desktop\aulas-delphi\aulas-de-programacao-delphi\EscreverLinhasNumArquivoDeRegistros2\registros.txt';
 
 var
   registros:textfile;

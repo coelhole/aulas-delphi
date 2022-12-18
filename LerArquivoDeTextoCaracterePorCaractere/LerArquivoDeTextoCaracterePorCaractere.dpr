@@ -13,7 +13,7 @@ var
   c:char;
 
 begin
-  assign(txtfile,MEU_ARQUIVO);
+  assignFile(txtfile,MEU_ARQUIVO);
   reset(txtfile);
   while not eof(txtfile) do begin
     read(txtfile,c);

@@ -38,6 +38,7 @@ begin
   //(1) o endereço do primeiro inteiro do array, isto é, @arrayde10inteiros[1]
   //é exatamente o endereço do array, isto é,
   //@arrayde10inteiros[1] = @arrayde10inteiros (são iguais!)
+  //(isto é, o endereço de um array é simplesmente o endereço do seu primeiro elemento!)
   //(2) o endereço de cada inteiro do array é o endereço do inteiro anterior + 4
   //isto é, @arrayde10inteiros[i+1] = @arrayde10inteiros[i] + 4 para i=1,...,9
   //(realmente, um inteiro ocupa 4 bytes de memória!)

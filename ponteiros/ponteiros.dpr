@@ -58,7 +58,7 @@ var
 
 begin
   writeln('Nenhum valor foi atribuido ao ponteiro pint...');
-  writeln('Endereco de memoria guardado no ponteiro pint: ',integer(pint));
+  writeln('Endereco de memoria guardado no ponteiro pint: ',integer(pint));//usamos o casting para forçar o valor do ponteiro como um inteiro
   writeln(format('Endereco de memoria guardado no ponteiro pint (em hexadecimal): %p',[pint]));
   writeln('Veja que, ainda que nenhum valor tenha sido atribuido a pint, ele ja contem um valor inicial!');
   writeln('Portanto, cuidado!');
@@ -76,7 +76,7 @@ begin
   pint:=@int1;//o operador @ devolve o endereço em memória da variável int1 que é, aqui, guardado no ponteiro pint
   writeln('pint:=@int1;');
 
-  writeln('Endereco da variavel int1: ',integer(pint));//usamos o casting para forçar o valor do ponteiro como um inteiro
+  writeln('Endereco da variavel int1: ',integer(pint));
   writeln(format('Endereco da variavel int1 (em hexadecimal): %p',[pint]));
 
   writeln('Valor guardado na variavel int1: ',int1);

@@ -67,6 +67,23 @@ begin
   end;
 end;
 
+procedure removerPrimeiroNo;
+var
+  tmp:pItemLista;
+begin
+  if primeiroNo<>nil then begin
+    if primeiroNo^.proximo=nil then begin
+      dispose(primeiroNo);
+      primeiroNo:=nil;
+      ultimoNo:=nil;
+    end else begin
+      tmp:=primeiroNo^.proximo;
+      dispose(primeiroNo);
+      primeiroNo:=tmp;      
+    end;
+  end;
+end;
+
 begin
   criarLista(23);
 
@@ -87,6 +104,13 @@ begin
   writeln;
   imprimirLista;
 
+  removerPrimeiroNo;
+  writeln;
+  imprimirLista;
+
+  removerPrimeiroNo;
+  writeln;
+  imprimirLista;
+
   readln;
 end.
- 

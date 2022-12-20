@@ -59,84 +59,224 @@ begin
   end else result:=-1;
 end;
 
+function vazia:boolean;
 begin
+  result:=primeiroNo=nil;
+end;
+
+begin
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
   inserir(54);
   writeln('inserir(54);');
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   inserir(543);
   writeln('inserir(543);');
 
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
   inserir(100);
   writeln('inserir(100);');
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   inserir(750);
   writeln('inserir(750);');
 
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
   inserir(231);
   writeln('inserir(231);');
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   inserir(2048);
   writeln('inserir(2048);');
 
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
   inserir(512);
   writeln('inserir(512);');
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   inserir(1024);
   writeln('inserir(1024);');
 
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
   inserir(7);
   writeln('inserir(7);');
 
-  writeln('remover;');
-  writeln('item removido: ',remover);
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   writeln('remover;');
   writeln('item removido: ',remover);
 
-  writeln('remover;');
-  writeln('item removido: ',remover);
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   writeln('remover;');
   writeln('item removido: ',remover);
 
-  writeln('remover;');
-  writeln('item removido: ',remover);
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   writeln('remover;');
   writeln('item removido: ',remover);
 
-  writeln('remover;');
-  writeln('item removido: ',remover);
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   writeln('remover;');
   writeln('item removido: ',remover);
 
-  writeln('remover;');
-  writeln('item removido: ',remover);
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   writeln('remover;');
   writeln('item removido: ',remover);
 
-  writeln('remover;');
-  writeln('item removido: ',remover);
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   writeln('remover;');
   writeln('item removido: ',remover);
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
+  writeln('remover;');
+  writeln('item removido: ',remover);
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
+  writeln('remover;');
+  writeln('item removido: ',remover);
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
+  writeln('remover;');
+  writeln('item removido: ',remover);
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
+  writeln('remover;');
+  writeln('item removido: ',remover);
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
+  writeln('remover;');
+  writeln('item removido: ',remover);
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
+  writeln('remover;');
+  writeln('item removido: ',remover);
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   inserir(10000);
   writeln('inserir(10000);');
 
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
   inserir(9342);
   writeln('inserir(9342);');
 
-  writeln('remover;');
-  writeln('item removido: ',remover);
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   writeln('remover;');
   writeln('item removido: ',remover);
 
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
   writeln('remover;');
   writeln('item removido: ',remover);
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
+
+  writeln('remover;');
+  writeln('item removido: ',remover);
+
+  if vazia then
+    writeln('Fila vazia? Sim!')
+  else
+    writeln('Fila vazia? Nao!');
 
   readln;
 end.

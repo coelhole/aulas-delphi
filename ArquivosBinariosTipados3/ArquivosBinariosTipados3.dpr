@@ -16,7 +16,7 @@ type
 
 var
   cidades:array of cidade;
-  op:string;
+  op:string;//opção
 
 procedure carregarCidades;
 var
@@ -79,6 +79,7 @@ begin
   rewrite(cidadesdb);
   for i:=0 to length(cidades)-1 do
     write(cidadesdb,cidades[i]);
+  closeFile(cidadesdb);
 end;
 
 procedure listarCidades;

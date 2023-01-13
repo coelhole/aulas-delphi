@@ -17,20 +17,14 @@ var
   topo:pItemPilha=nil;
 
 procedure empilhar(const datum:word);
-  procedure criarPilha(const datum:word);
-  begin
-    if topo=nil then begin
-      new(topo);
-      topo^.datum := datum;
-      topo^.abaixo := nil;
-    end;
-  end;
 var
   novoTopo:pItemPilha;
 begin
-  if topo=nil then
-    criarPilha(datum)
-  else begin
+  if topo=nil then begin
+    new(topo);
+    topo^.datum := datum;
+    topo^.abaixo := nil;
+  end else begin
     new(novoTopo);
     novoTopo^.datum := datum;
     novoTopo^.abaixo := topo;

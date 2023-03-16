@@ -11,13 +11,14 @@ type
     fIntegerArray:array of integer;
     function GetSize:integer;
     function GetElement(const i:integer):integer;
+    procedure SetElement(const i,newValue:integer);    
   public
     procedure Add(const myInt:integer); overload;
     procedure Add(const myIntArr:array of integer); overload;
     function Remove:integer;
     procedure Print;
     property Size:integer read GetSize;
-    property Element[const i:integer]:integer read GetElement;
+    property Element[const i:integer]:integer read GetElement write SetElement;
   end;
 
 function TIntegerList.GetSize:integer;
@@ -28,9 +29,17 @@ end;
 function TIntegerList.GetElement(const i:integer):integer;
 begin
   if (i<0) or (i>=Size) then
-    writeln('warn: indice ',i,' invalido')
+    raise exception.create('indice '+inttostr(i)+' invalido')
   else
     result:=fIntegerArray[i];
+end;
+
+procedure TIntegerList.SetElement(const i,newValue:integer);
+begin
+  if (i<0) or (i>=Size) then
+    raise exception.create('indice '+inttostr(i)+' invalido')
+  else
+    fIntegerArray[i]:=newValue;
 end;
 
 procedure TIntegerList.Add(const myInt:integer);
@@ -119,6 +128,11 @@ begin
   setLength(meuArray2,15);
   PopularArray(meuArray2);
   minhaListaDeInteiros.Add(meuArray2);
+  minhaListaDeInteiros.Print;
+
+  for i:=0 to minhaListaDeInteiros.Size-1 do
+    minhaListaDeInteiros.Element[i]:=0;
+
   minhaListaDeInteiros.Print;
 
   readln;

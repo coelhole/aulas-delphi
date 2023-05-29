@@ -79,7 +79,7 @@ function stringMunicipios(const caminhoArquivoJSON:ansistring):ansistring;
 var
   arquivoMunicipios:textfile;
 begin
-  assign(arquivoMunicipios,caminhoArquivoJSON);
+  assignFile(arquivoMunicipios,caminhoArquivoJSON);
   reset(arquivoMunicipios);
   readln(arquivoMunicipios,result);
   closeFile(arquivoMunicipios);

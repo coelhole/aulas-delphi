@@ -84,6 +84,40 @@ begin
   end;
 end;
 
+procedure inserirNaPosicaoN(const n:integer; const datum:word);//consideramos N=0 a primeira posição
+var
+  i:integer;
+  noAnterior,noSeguinte,noNovo:pItemLista;
+begin
+  if n<0 then begin
+    writeln('posicao invalida: ',n,' < 0');
+    exit;
+  end;
+
+  if primeiroNo=nil then begin
+    criarLista(datum);
+    //writeln('Lista criada: no inserido na primeira posicao (posicao 0)');
+    exit;
+  end;
+
+  i:=0;
+  noAnterior:=nil;
+  noSeguinte:=primeiroNo;
+  while (i<n) and (noSeguinte<>nil) do begin
+    noAnterior:=noSeguinte;
+    noSeguinte:=noSeguinte^.proximo;
+    inc(i);
+  end;
+  new(noNovo);
+  noNovo^.datum:=datum;
+  if noAnterior<>nil then
+    noAnterior^.proximo:=noNovo;
+  noNovo^.proximo:=noSeguinte;
+  if noSeguinte=primeiroNo then
+    primeiroNo:=noNovo;
+  //writeln('No inserido na posicao ',i);
+end;
+
 begin
   criarLista(23);
 
@@ -95,22 +129,42 @@ begin
   inserirNoFim(2048);
   inserirNoFim(512);
   imprimirLista;
+  writeln;
 
   inserirNoComeco(1024);
   writeln;
   imprimirLista;
+  writeln;
 
   inserirNoComeco(7);
   writeln;
   imprimirLista;
+  writeln;
 
   removerPrimeiroNo;
   writeln;
   imprimirLista;
+  writeln;
 
   removerPrimeiroNo;
   writeln;
   imprimirLista;
+  writeln;
+
+  inserirNaPosicaoN(-1,777);
+  writeln;
+  imprimirLista;
+  writeln;
+
+  inserirNaPosicaoN(0,659);
+  writeln;
+  imprimirLista;
+  writeln;
+
+  inserirNaPosicaoN(3,878);
+  writeln;
+  imprimirLista;
+  writeln;
 
   readln;
 end.
